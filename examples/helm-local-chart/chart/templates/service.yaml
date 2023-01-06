@@ -2,7 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "local-demo.fullname" . }}
+  annotations:
+    zarf.dev/connect-description: "nginx webserver"
   labels:
+    zarf.dev/connect-name: nginx
     {{- include "local-demo.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
